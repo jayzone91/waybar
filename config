@@ -4,7 +4,7 @@
   "height": 34, // Waybar height (to be removed for auto height)
   "spacing": 4, // Gaps between modules
   // Choose the order of modules
-  "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "custom/updates"],
+  "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "custom/updates", "custom/pacman"],
   "modules-center": ["hyprland/window"],
   "modules-right": ["cpu", "memory", "temperature", "tray", "clock"],
   // Modules Configuration
@@ -112,8 +112,8 @@
         // "scroll-step": 10, // %, can be a float
         "format": "{volume}%{icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-bluetooth-muted": "󰖁 {icon} {format_source}",
+        "format-muted": "󰖁 {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -125,7 +125,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click-right": "pavucontrol",
+        "on-click": "~/.config/waybar/volume --toggle"
     },
     "custom/notification": {
         "tooltip": false,
@@ -146,6 +147,16 @@
         "on-click": "sleep 0.1 && swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
+    },
+    "custom/pacman": {
+      "format": "{} {icon}",
+  "return-type": "json",
+  "format-icons": {
+    "pending-updates": " ",
+    "updated": ""
+  },
+  "exec-if": "which waybar-updates",
+  "exec": "waybar-updates"
     },
     "custom/updates": {
         "format": "{} {icon}",
