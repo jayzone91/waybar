@@ -1,119 +1,108 @@
-@define-color base00 #181818;
-@define-color base01 #2b2e37;
-@define-color base02 #3b3e47;
-@define-color base03 #585858;
-@define-color base04 #b8b8b8;
-@define-color base05 #d8d8d8;
-@define-color base06 #e8e8e8;
-@define-color base07 #f8f8f8;
-@define-color base08 #ab4642;
-@define-color base09 #dc9656;
-@define-color base0A #f7ca88;
-@define-color base0B #a1b56c;
-@define-color base0C #86c1b9;
-@define-color base0D #7cafc2;
-@define-color base0E #ba8baf;
-@define-color base0F #a16946;
-
 * {
-  transition: none;
-  box-shadow: none;
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 0;
 }
 
-#waybar {
-	font-family: 'Source Code Pro', sans-serif;
-	font-size: 1.2em;
-	font-weight: 400;
-  color: @base04;
-  background: @base01;
+window#waybar {
+    background: rgba(21, 18, 27, 0);
+    color: #f6f7fc;
 }
 
-#workspaces {
-  margin: 0 4px;
+tooltip {
+    background: #1e1e2e;
+    opacity: 0.8;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
+}
+
+tooltip label{
+    color: #cdd6f4;
 }
 
 #workspaces button {
-  margin: 4px 0;
-  padding: 0 4px;
-  color: @base05;
-}
-
-#workspaces button.visible {
+    padding: 5px;
+    color: #f6f7fc;
+    margin-right: 5px;
 }
 
 #workspaces button.active {
-  border-radius: 4px;
-  background-color: @base02;
+    color: #000000;
+    background: #a6e3a1;
+    border-radius: 10px;
 }
 
-#workspaces button.urgent {
-  color: rgba(238, 46, 36, 1);
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+    border-radius: 10px;
 }
 
-#tray {
-  margin: 4px 4px 4px 4px;
-  border-radius: 4px;
-  background-color: @base02;
-}
-
-#tray * {
-  padding: 0 6px;
-  border-left: 1px solid @base00;
-}
-
-#tray *:first-child {
-  border-left: none;
-}
-
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature {
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base02;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-#pulseaudio.muted {
-  color: @base0F;
-}
-
-#pulseaudio.bluetooth {
-  color: @base0C;
-}
-
-#clock {
-  margin-left: 0px;
-  margin-right: 4px;
-  background-color: transparent;
+#custom-launch_wofi,
+#custom-launch_firefox,
+#custom-launch_thunderbird,
+#custom-launch_thunar,
+#custom-launch_kitty,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile,
+#custom-weather,
+#custom-myhyprv,
+#window,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#temperature,
+#workspaces,
+#idle_inhibitor,
+#backlight {
+    background: rgba(21, 18, 27, 0);
+    opacity: 1;
+    padding: 0px 8px;
+    margin: 0px 3px;
+    border: 0px;
 }
 
 #temperature.critical {
-  color: @base0F;
+    color: #e92d4d;
+}
+
+#workspaces {
+    padding-right: 0px;
+    padding-left: 5px;
 }
 
 #window {
-  font-size: 0.9em;
-	font-weight: 400;
-	font-family: sans-serif;
+    border-radius: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
-@keyframes blink-update {
-	to {
-		background-color: dodgerblue;
-	}
+#custom-launch_firefox, 
+#custom-launch_thunderbird,
+#custom-launch_thunar,
+#custom-launch_wofi,
+#custom-launch_kitty,
+#custom-weather {
+    margin-left: 0px;
+    border-right: 0px;
+    font-size: 24px;
+    margin-right: 20px;
 }
 
-#custom-pacman {
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base02;
-  border-radius: 4px;
-  min-width: 20px;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-}
-#custom-pacman.pending-updates {
-	animation-name: blink-update;
-	animation-duration: 3s;
+#custom-launch_firefox, 
+#custom-launch_kitty {
+    font-size: 20px;
 }
