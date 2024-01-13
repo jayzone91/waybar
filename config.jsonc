@@ -1,0 +1,94 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 20,
+
+  // Modules Left
+  "modules-left": [
+    "custom/power_btn",
+    "custom/lock_screen",
+    "hyprland/workspaces"
+  ],
+  // Modules Middle
+  "modules-center": [
+    "clock",
+    "custom/updates"
+  ],
+  // Modules Right
+  "modules-right": [
+    "cpu",
+    "pulseaudio",
+    "tray"
+  ],
+
+  // --- Modules ---
+
+  // Power Button
+  "custom/power_btn":{
+    "format": "",
+    "on-click": "sh -c '(sleep 0.5s; wlogout --protocoll layer-shell)' & disown",
+    "tooltip": false
+  },
+
+
+  // Workspaces
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{name}"
+  },
+
+  // CPU
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%"
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "on-click": "~/.config/waybar/volume.sh --toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "~/.config/waybar/volume.sh --inc",
+    "on-scroll-down": "~/.config/waybar/volume.sh --dec",
+    "scroll-step": 5,
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    },
+    "tooltip": true,
+    "tooltip-format": "{icon} at {volume}%"
+  },
+
+  // Tray
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+
+  // Updates
+  "custom/updates":{
+    "format": "{}",
+    "exec": "~/.config/waybar/update-sys.sh",
+    "on-click": "~/.config/waybar/update-sys.sh update",
+    "interval": 300,
+    "tooltip": true
+  },
+
+  // Clock
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{: %A, %e %B %Y}"
+  }
+}
